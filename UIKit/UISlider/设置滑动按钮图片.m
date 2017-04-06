@@ -1,0 +1,2 @@
+[self.soundVolumeSlider setThumbImage:[UIImage imageNamed:@"EHMaster_slider_btn"] forState:UIControlStateNormal];
+[self.soundVolumeSlider setThumbImage:[UIImage imageNamed:@"EHMaster_slider_btn"] forState:UIControlStateHighlighted];
