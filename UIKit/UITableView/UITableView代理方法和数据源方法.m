@@ -8,10 +8,10 @@
 1、返回session（分组）的个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
 
-2、设置对应分组的headerView
+2、设置对应分组的headerView //设置组头的高度-如果需要自定义组头视图，一定要设置行高，否则不走代理方法！
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
 
-3、设置对应分组的额footerview
+3、设置对应分组的额footerview // 同上
 - (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section;
 
 ------------------------------------Editing------------------------------------

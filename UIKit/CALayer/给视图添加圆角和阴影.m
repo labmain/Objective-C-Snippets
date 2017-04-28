@@ -25,7 +25,7 @@ self.view.layer.shadowRadius = 5.0;
 //阴影透明度，默认0
 self.view.layer.shadowOpacity = 0.5;
 //shadowColor阴影颜色
-self.view.layer.shadowColor = HexRGB(0xFFFFFF).CGColor;
+self.view.layer.shadowColor = HexRGB(0x000000).CGColor;
 
 // 注意，被添加的 视图 不能是透明的，否则，阴影会显示到子控件上
 
