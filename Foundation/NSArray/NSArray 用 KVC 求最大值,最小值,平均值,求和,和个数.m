@@ -11,6 +11,9 @@ NSLog(@"%@", [array valueForKeyPath:@"@avg.self"]);
 //求数组中元素的个数
 NSLog(@"共%@个", [array valueForKeyPath:@"@count.self"]);
 
+// 返回集合中所有的对象如果有相同的对象那么只返回一个。
+NSArray*array =@[@"hahahah",@"heiheihei",@"heiheihei",@"123",@"321",@"123",@"hahahah",@"测试"];
+NSArray*unique = [array valueForKeyPath:@"@distinctUnionOfObjects.self"];
 
 // 可以使用. 来一层一层向下索引，当多个字典层级时，取子层级中的属性就非常简单了
 NSDictionary *dict1 = @{@"dic1":@{@"dic2":@{@"name":@"lisi",@"info":@{@"age":@"12"}}}};

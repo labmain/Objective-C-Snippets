@@ -1,0 +1,2 @@
+// 如果背连续modal的控制器可以用一下方法dismiss
+[self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];

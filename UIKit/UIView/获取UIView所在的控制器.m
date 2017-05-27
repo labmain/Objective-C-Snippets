@@ -2,15 +2,19 @@
 //不论中间采用了 push->push->present还是present->push->present,或是其它交互
 - (UIViewController *)theTopviewControler{
     UIViewController *rootVC = [[UIApplication sharedApplication].delegate window].rootViewController;
-
     UIViewController *parent = rootVC;
-
     while ((parent = rootVC.presentedViewController) != nil ) {
         rootVC = parent;
     }
 
     while ([rootVC isKindOfClass:[UINavigationController class]]) {
         rootVC = [(UINavigationController *)rootVC topViewController];
+    }
+    if ([rootVC isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabVC = (UITabBarController *)rootVC;
+        NSArray<UIViewController *> *vcArr = tabVC.viewControllers;
+        UINavigationController *VC = (UINavigationController *)[vcArr objectAtIndex:tabVC.selectedIndex];
+        return [VC topViewController];
     }
 
     return rootVC;
