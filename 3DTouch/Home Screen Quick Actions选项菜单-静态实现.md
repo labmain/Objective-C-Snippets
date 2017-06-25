@@ -4,7 +4,7 @@
 Static quick actions are available to the userimmediately upon app installation. Define Home screen static quick actions in your app’sInfo.plistfile in theUIApplicationShortcutItemsarray.
 ```
 
-就是在`info.plist`的文件中添加`UIApplicationShortcutItems`数组就可以使用了，具体数组里面的配置下面会有说明，还有一点需要强调的是，使用静态标签是程序安装以后就可以立即使用了。
+在`info.plist`的文件中添加`UIApplicationShortcutItems`数组就可以使用了，具体数组里面的配置下面会有说明，还有一点需要强调的是，使用静态标签是程序安装以后就可以立即使用了。
 **快捷菜单允许的最多显示的项目为 4个**
 
 `UIApplicationShortcutItemType`(required) 这个键值设置一个快捷通道类型的字符串 我们可以监听该项的值来判断用户是从哪一个标签进入App的，该字段的值可以为空
@@ -28,23 +28,34 @@ Static quick actions are available to the userimmediately upon app installation.
 - (void)application:(UIApplication*)application performActionForShortcutItem:(UIApplicationShortcutItem*)shortcutItem completionHandler:(void(^)(BOOL))completionHandler;
 ```
 
-**注意：**
+## 当程序不在后台的时候
 
-completionHandler() 在 API 的说明中我们看到当应用并非在后台
-而是直接重新开进程的时候，会直接返回NO 这样的话我们的回调会放在
+`completionHandler()` 在 API 的说明中我们看到当应用并非在后台
+而是直接重新开进程的时候，会直接返回NO
+
+UIApplication 提供了一个可以从 launchOptions 这个字典中
+获取到 `shortcutItem` 的 `keyUIApplicationLaunchOptionsShortcutItemKey`
+有了这个 `Key` 我们就可以处理不同的事件
 
 ```objc
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions;
 ```
 
-这时候 UIApplication 刚好提供了一个可以从 launchOptions 这个字典中
-获取到 shortcutItem 的 keyUIApplicationLaunchOptionsShortcutItemKey
-有了这个Key 我们就可以处理不同的事件
 ```objc
-UIApplicationShortcutItem *shortcutItem;
-shortcutItem = [launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey];
-if (shortcutItem) {
-  [self shortcutItemLaunchingWithItem:shortcutItem];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
+        // 是否是从3D Touch 启动 ，防止调用 application:performActionForShortcutItem:completionHandler
+        UIApplicationShortcutItem *shortcutItem;
+        shortcutItem = [launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey];
+        if (shortcutItem) {
+            [self shortcutItemLaunchingWithItem:shortcutItem];
+            return NO;
+        }
+
+    }
+
+    return YES;
 }
 ```
 
