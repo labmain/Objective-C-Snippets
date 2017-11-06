@@ -19,10 +19,11 @@ void (^blockName)()=^{
 
 ```objc
 typedef int(^blockName1)(int,NSString*);
-blockName1 bn=^(int para1, NSString *para2){
+blockName1 bn=^(int para1, NSString * para2){
    return 1;
 };
 ```
+
 ### 无参数情况:
 ```objc
 typedef int(^blockName1)();
