@@ -38,7 +38,7 @@
     //在默认的布局属相的基础上进行 调整
     for (UICollectionViewLayoutAttributes *attrs in array) {
 
-        // 计算 cell 中点 x 到 CollectionvIEW Z的值
+        // 计算 cell 中点 x 到 CollectionvIEW 
         CGFloat delta = ABS(attrs.center.x - centerX);
 
         // 根据距离计算缩放比例  成反比
