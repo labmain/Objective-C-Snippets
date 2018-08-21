@@ -16,7 +16,7 @@ _timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@sele
 
 原理是把触发时间设置在未来，既很久之后，这样定时器自动进入等待触发的状态，估计要等很久。。。 
 
-[_timer setFireDate:[NSDatedistantFuture]];
+[_timer setFireDate:[NSDate distantFuture]];
 
 
 
@@ -24,7 +24,7 @@ _timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@sele
 
 原理是把触发时间设置为现在，设置后定时器马上进入工作状态。
 
-[_timer setFireDate:[NSDatedate]];
+[_timer setFireDate:[NSDate date]];
 
 
 
@@ -33,4 +33,4 @@ _timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@sele
 系统自带方法，停止定时器
 
 
-[_timerinvalidate];
+[_timer invalidate];

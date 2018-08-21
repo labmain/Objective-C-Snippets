@@ -52,7 +52,7 @@ typedef void (^someBlock)(BOOL success);
         dispatch_group_leave(serviceGroup);
     }];
 
-    dispatch_group_wait(serviceGroup, DISPATCH_TIME_FOREVER);
+    dispatch_group_wait(serviceGroup, DISPATCH_TIME_FOREVER); // 会阻塞线程，不能放在主线程上
 
 // Start the second task
     dispatch_group_enter(serviceGroup);

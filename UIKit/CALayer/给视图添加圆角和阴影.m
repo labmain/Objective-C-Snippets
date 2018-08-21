@@ -40,3 +40,16 @@ v.layer.shadowOffset=CGSizeMake(10, 10);
 v.layer.shadowOpacity=0.5;
 v.layer.shadowRadius=5;
 [self.view addSubview:v];
+
+
+#pragma mark - UIButton 添加圆角和阴影
+CALayer *layer = [CALayer layer];
+layer.frame = self.goToStudyBtn.frame; // 按钮的frame
+layer.backgroundColor = HexRGBAlpha(0x000000, 0.1).CGColor;
+layer.shadowOffset = CGSizeMake(0, 4);
+layer.shadowOpacity = 1;
+layer.cornerRadius = 25;
+[self.layer addSublayer:layer];
+[self bringSubviewToFront:self.goToStudyBtn]; // 按钮要在layer的上面
+self.goToStudyBtn.layer.masksToBounds =YES;
+self.goToStudyBtn.layer.cornerRadius =25;

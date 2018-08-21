@@ -9,7 +9,8 @@
     //    NSLog(@" scrollViewDidScroll");
     NSLog(@"ContentOffset  x is  %f,y is %f",scrollView.contentOffset.x,scrollView.contentOffset.y);
 }
-// 结束滑动时调用，只调用一次，手指离开时执行- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset NS_AVAILABLE_IOS(5_0);
+// 结束滑动时调用，只调用一次，手指离开时执行
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset;
 
 // 完成拖拽 3
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -50,7 +51,7 @@
 }
 
 没有开启分页的时候，代理方法调用顺序：
-scrollViewWillBeginDragging –> scrollViewDidScroll -> scrollViewWillEndDragging -> scrollViewDidEndDragging
+// scrollViewWillBeginDragging –> scrollViewDidScroll -> scrollViewWillEndDragging -> scrollViewDidEndDragging
  
- 开启分页的时候，代理方法调用顺序
-scrollViewWillBeginDragging -> scrollViewDidScroll -> scrollViewDidEndDragging ->scrollViewWillBeginDecelerating ->scrollViewDidScroll -> scrollViewDidEndDecelerating
+开启分页的时候，代理方法调用顺序
+// scrollViewWillBeginDragging -> scrollViewDidScroll -> scrollViewDidEndDragging ->scrollViewWillBeginDecelerating ->scrollViewDidScroll -> scrollViewDidEndDecelerating
