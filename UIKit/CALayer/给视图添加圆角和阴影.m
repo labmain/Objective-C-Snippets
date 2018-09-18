@@ -48,8 +48,8 @@ layer.frame = self.goToStudyBtn.frame; // 按钮的frame
 layer.backgroundColor = HexRGBAlpha(0x000000, 0.1).CGColor;
 layer.shadowOffset = CGSizeMake(0, 4);
 layer.shadowOpacity = 1;
-layer.cornerRadius = 25;
-[self.layer addSublayer:layer];
+layer.cornerRadius = 26;
+[self.layer addSublayer:layer]; // 添加到父视图
 [self bringSubviewToFront:self.goToStudyBtn]; // 按钮要在layer的上面
-self.goToStudyBtn.layer.masksToBounds =YES;
-self.goToStudyBtn.layer.cornerRadius =25;
+self.goToStudyBtn.layer.masksToBounds = YES;
+self.goToStudyBtn.layer.cornerRadius = 26;
