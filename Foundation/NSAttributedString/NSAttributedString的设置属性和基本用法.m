@@ -1,7 +1,7 @@
 属性：
 /*
 NSFontAttributeName                设置字体属性，默认值：字体：Helvetica(Neue) 字号：12
-NSForegroundColorAttributeName      设置字体颜色，取值为 UIColor对象，默认值为黑色
+NSForegroundColorAttributeName     设置字体颜色，取值为 UIColor对象，默认值为黑色
 NSBackgroundColorAttributeName     设置字体所在区域背景颜色，取值为 UIColor对象，默认值为nil, 透明色
 NSLigatureAttributeName            设置连体属性，取值为NSNumber 对象(整数)，0 表示没有连体字符，1 表示使用默认的连体字符
 NSKernAttributeName                设定字符间距，取值为 NSNumber 对象（整数），正值间距加宽，负值间距变窄
